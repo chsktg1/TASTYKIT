@@ -16,6 +16,8 @@ import SpecificRest from './components/SpecificRest'
 
 import CartContext from './components/CartContext'
 
+import NotFound from './components/NotFound'
+
 import './App.css'
 
 class App extends Component {
@@ -65,15 +67,15 @@ class App extends Component {
     const {cart} = this.state
     console.log('cart', cart)
     return (
-      <Switch>
-        <CartContext.Provider
-          value={{
-            cartItems: cart,
-            setCart: this.addCartItem,
-            decQuantity: this.decreaseQuantity,
-            incQuantity: this.increaseQuantity,
-          }}
-        >
+      <CartContext.Provider
+        value={{
+          cartItems: cart,
+          setCart: this.addCartItem,
+          decQuantity: this.decreaseQuantity,
+          incQuantity: this.increaseQuantity,
+        }}
+      >
+        <Switch>
           <Route exact path="/login" component={Login} />
           <ProtectedPath exact path="/" component={Home} />
           <ProtectedPath exact path="/cart" component={Cart} />
@@ -82,8 +84,9 @@ class App extends Component {
             path="/restaurant/:id"
             component={SpecificRest}
           />
-        </CartContext.Provider>
-      </Switch>
+          <Route component={NotFound} />
+        </Switch>
+      </CartContext.Provider>
     )
   }
 }

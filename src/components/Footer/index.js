@@ -10,8 +10,9 @@ import {
 const Footer = () => (
   <div className="footer" style={{backgroundColor: '#0F172A'}}>
     <h1 style={{color: 'white'}}>Tasty Kitchens</h1>
-    <p style={{color: 'white'}}>The only thing we are serious about is food.</p>
-    <p style={{color: 'white'}}>Contact us on</p>
+    <p style={{color: 'white'}}>
+      The only thing we are serious about is food. Contact us on
+    </p>
     <ul className="socialIconsHolder">
       <li style={{margin: '10px'}}>
         <FaPinterestSquare

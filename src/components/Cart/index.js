@@ -8,12 +8,16 @@ import Header from '../Header'
 
 import {AiOutlineMinusSquare, AiOutlinePlusSquare} from 'react-icons/ai'
 
+import imageNoOrder from '../assets/cooking1.png'
+import {Link} from 'react-router-dom'
+
 export default class Cart extends Component {
   render() {
     return (
       <CartContext.Consumer>
         {value => {
           const {cartItems, decQuantity, incQuantity} = value
+          console.log('cartItems', cartItems)
           const inc = id => {
             decQuantity(id)
           }
@@ -45,12 +49,23 @@ export default class Cart extends Component {
               >
                 <p>Item</p> <p>Quantity</p> <p>Price</p>
               </div>
-              <div>
-                {cartItems === [] || cartItems === null ? (
-                  <p>No ITEMS IN CART</p>
+              <ul>
+                {cartItems === [] ||
+                cartItems === null ||
+                cartItems.length === 0 ? (
+                  <>
+                    <img src={imageNoOrder} alt="empty cart" />
+                    <h1>No Orders Yet!</h1>
+                    <p>Your cart is empty. Add something from the menu.</p>
+                    <Link to="/">
+                      <button type="button" className="alp">
+                        Order now
+                      </button>
+                    </Link>
+                  </>
                 ) : (
                   cartItems.map(e => (
-                    <div
+                    <li
                       key={e.id}
                       style={{
                         display: 'flex',
@@ -58,29 +73,29 @@ export default class Cart extends Component {
                         marginTop: '30px',
                       }}
                     >
-                      <div>
+                      <div testid="cartItem">
                         {' '}
                         <img
                           style={{width: '155px'}}
                           src={e.image_url}
                           alt={e.name}
                         />
-                        <p>{e.name}</p>
+                        <h1>{e.name}</h1>
                       </div>
                       <div>
                         <AiOutlineMinusSquare onClick={() => inc(e.id)} />
-                        {e.quantity}
+                        <p>{e.quantity}</p>
                         <AiOutlinePlusSquare onClick={() => dec(e.id)} />
                       </div>
                       <div>{e.cost * e.quantity}</div>
-                    </div>
+                    </li>
                   ))
                 )}
                 <div style={{display: 'flex', justifyContent: 'space-around'}}>
                   <p>Order Total :</p>
                   {getCost()}
                 </div>
-              </div>
+              </ul>
             </>
           )
         }}

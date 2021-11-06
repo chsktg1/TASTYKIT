@@ -55,7 +55,11 @@ class Header extends Component {
               >
                 Cart
               </Link>
-              <button className="btn btn-primary" onClick={this.LogMeOut}>
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={this.LogMeOut}
+              >
                 Logout
               </button>
             </div>
