@@ -14,7 +14,7 @@ import LoadingView from '../LoadingView'
 import './index.css'
 
 export default class SpecificRest extends Component {
-  state = {isLoading: true, cart: []}
+  state = {isLoading: true}
 
   componentDidMount() {
     this.getData()
@@ -125,6 +125,7 @@ export default class SpecificRest extends Component {
                         </div>
                         <div>
                           <button
+                            type="button"
                             className="btn btn-outline-warning"
                             onClick={() => addMeToCart(e)}
                           >

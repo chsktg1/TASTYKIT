@@ -1,4 +1,5 @@
-import React, {Component} from 'react'
+/* eslint-disable react/button-has-type */
+import {Component} from 'react'
 
 import Cookies from 'js-cookie'
 
@@ -20,7 +21,6 @@ import LoadingView from '../LoadingView'
 export default class Data extends Component {
   state = {
     activePage: 1,
-    error: false,
     isLoading: true,
     showDrop: false,
     rating: 'Lowest',
@@ -96,9 +96,9 @@ export default class Data extends Component {
           }}
         >
           <div>
-            <p style={{fontSize: '32px', paddingBottom: '20px'}}>
+            <h1 style={{fontSize: '32px', paddingBottom: '20px'}}>
               Popular Restaurants
-            </p>
+            </h1>
             <p>
               Select Your favorite restaurant special dish and make your day
               happy...
@@ -109,13 +109,14 @@ export default class Data extends Component {
               <FcGenericSortingDesc />
             </div>
 
-            <p>Sort by {rating}</p>
+            <p>Sort by </p>
+            {rating}
 
             <div style={{marginTop: '-1px', marginRight: '4px'}}>
-              <button onClick={this.showDropDown}>
+              <button type="button" onClick={this.showDropDown}>
                 <BsFillCaretDownFill />
               </button>
-              {showDrop ? (
+              {true ? (
                 <select value={rating} onChange={this.dropDown}>
                   <option value="Lowest">Lowest</option>
                   <option value="Highest">Highest</option>

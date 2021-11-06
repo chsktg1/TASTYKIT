@@ -40,21 +40,25 @@ class Header extends Component {
             className="collapse navbar-collapse MakeIt"
             id="navbarNavAltMarkup"
           >
-            <div className="navbar-nav">
-              <Link
-                id={homeOrCart ? 'colorIt' : 'NoColorIt'}
-                className="nav-item nav-link"
-                to="/"
-              >
-                Home
-              </Link>
-              <Link
-                className="nav-item nav-link"
-                id={!homeOrCart ? 'colorIt' : 'NoColorIt'}
-                to="/cart"
-              >
-                Cart
-              </Link>
+            <ul className="navbar-nav">
+              <li>
+                <Link
+                  id={homeOrCart ? 'colorIt' : 'NoColorIt'}
+                  className="nav-item nav-link"
+                  to="/"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="nav-item nav-link"
+                  id={!homeOrCart ? 'colorIt' : 'NoColorIt'}
+                  to="/cart"
+                >
+                  Cart
+                </Link>
+              </li>
               <button
                 type="button"
                 className="btn btn-primary"
@@ -62,7 +66,7 @@ class Header extends Component {
               >
                 Logout
               </button>
-            </div>
+            </ul>
           </div>
         </nav>
       </>

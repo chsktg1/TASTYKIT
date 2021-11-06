@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie'
-import React, {Component} from 'react'
+import {Component} from 'react'
 
 import Slider from 'react-slick'
 
@@ -12,7 +12,7 @@ import 'slick-carousel/slick/slick-theme.css'
 import LoadingView from '../LoadingView'
 
 export default class Carousel extends Component {
-  state = {isLoading: true, car: [], error: false}
+  state = {isLoading: true, car: []}
 
   componentDidMount() {
     this.getData()
@@ -42,7 +42,7 @@ export default class Carousel extends Component {
     }
     const {car, isLoading} = this.state
     return isLoading ? (
-      <LoadingView />
+      <LoadingView td="restaurants-offers-loader" />
     ) : (
       <div className="slider-container">
         <Slider {...settings}>

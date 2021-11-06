@@ -69,9 +69,9 @@ export default class Login extends Component {
         <div className="extra">
           <div className="loginDiv">
             <img src={Hat} className="notInSmallScreen" alt="website logo" />
-            <h1 className="notInSmallScreen">Tasty Kitchen</h1>
+            <h1 className="notInSmallScreen">Tasty Kitchens</h1>
             <div className="cssHelper">
-              <p className="LoginText">Login</p>
+              <h1 className="LoginText">Login</h1>
             </div>
             <form onSubmit={this.checkUser}>
               <label htmlFor="un">USERNAME</label>
