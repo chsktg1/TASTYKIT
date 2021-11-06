@@ -1,23 +1,23 @@
-import React, { Component } from "react";
+import React, {Component} from 'react'
 
-import { Link, withRouter } from "react-router-dom";
+import {Link, withRouter} from 'react-router-dom'
 
-import Cookies from "js-cookie";
+import Cookies from 'js-cookie'
 
-import "./index.css";
+import './index.css'
 
-import Hat from "../assets/LoginPage/Hat.svg";
+import Hat from '../assets/LoginPage/Hat.svg'
 
 class Header extends Component {
   LogMeOut = () => {
-    Cookies.remove("jwt_token");
-    const { history } = this.props;
-    history.replace("/login");
-  };
+    Cookies.remove('jwt_token')
+    const {history} = this.props
+    history.replace('/login')
+  }
 
   render() {
-    const { homeOrCart } = this.props;
-    console.log("homeOrCart", homeOrCart);
+    const {homeOrCart} = this.props
+    console.log('homeOrCart', homeOrCart)
     return (
       <>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -34,7 +34,7 @@ class Header extends Component {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"> </span>
           </button>
           <div
             className="collapse navbar-collapse MakeIt"
@@ -42,7 +42,7 @@ class Header extends Component {
           >
             <div className="navbar-nav">
               <Link
-                id={homeOrCart ? "colorIt" : "NoColorIt"}
+                id={homeOrCart ? 'colorIt' : 'NoColorIt'}
                 className="nav-item nav-link"
                 to="/"
               >
@@ -50,7 +50,7 @@ class Header extends Component {
               </Link>
               <Link
                 className="nav-item nav-link"
-                id={!homeOrCart ? "colorIt" : "NoColorIt"}
+                id={!homeOrCart ? 'colorIt' : 'NoColorIt'}
                 to="/cart"
               >
                 Cart
@@ -62,8 +62,8 @@ class Header extends Component {
           </div>
         </nav>
       </>
-    );
+    )
   }
 }
 
-export default withRouter(Header);
+export default withRouter(Header)

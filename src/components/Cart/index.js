@@ -1,45 +1,46 @@
-import React, { Component } from "react";
+/* eslint-disable */
 
-import CartContext from "../CartContext";
+import React, {Component} from 'react'
 
-import Header from "../Header";
+import CartContext from '../CartContext'
 
-import { AiOutlineMinusSquare, AiOutlinePlusSquare } from "react-icons/ai";
+import Header from '../Header'
+
+import {AiOutlineMinusSquare, AiOutlinePlusSquare} from 'react-icons/ai'
 
 export default class Cart extends Component {
   render() {
     return (
       <CartContext.Consumer>
-        {(value) => {
-          const { cartItems, decQuantity, incQuantity } = value;
-          const inc = (id) => {
-            decQuantity(id);
-          };
-          const dec = (id) => {
-            incQuantity(id);
-          };
+        {value => {
+          const {cartItems, decQuantity, incQuantity} = value
+          const inc = id => {
+            decQuantity(id)
+          }
+          const dec = id => {
+            incQuantity(id)
+          }
 
           const getCost = () => {
             if (cartItems.length > 0) {
-              var totalCost = cartItems[0]["quantity"] * cartItems[0]["cost"];
+              let totalCost = cartItems[0]['quantity'] * cartItems[0]['cost']
               for (let i = 1; i < cartItems.length; i++) {
                 totalCost =
-                  totalCost + cartItems[i]["quantity"] * cartItems[i]["cost"];
+                  totalCost + cartItems[i]['quantity'] * cartItems[i]['cost']
               }
-              return <p>₹ {totalCost}</p>;
-            } else {
-              return null;
+              return <p>₹ {totalCost}</p>
             }
-          };
+            return null
+          }
 
           return (
             <>
               <Header />
               <div
                 style={{
-                  display: "flex",
-                  justifyContent: "space-around",
-                  marginTop: "30px",
+                  display: 'flex',
+                  justifyContent: 'space-around',
+                  marginTop: '30px',
                 }}
               >
                 <p>Item</p> <p>Quantity</p> <p>Price</p>
@@ -48,19 +49,19 @@ export default class Cart extends Component {
                 {cartItems === [] || cartItems === null ? (
                   <p>No ITEMS IN CART</p>
                 ) : (
-                  cartItems.map((e) => (
+                  cartItems.map(e => (
                     <div
                       key={e.id}
                       style={{
-                        display: "flex",
-                        justifyContent: "space-around",
-                        marginTop: "30px",
+                        display: 'flex',
+                        justifyContent: 'space-around',
+                        marginTop: '30px',
                       }}
                     >
                       <div>
-                        {" "}
+                        {' '}
                         <img
-                          style={{ width: "155px" }}
+                          style={{width: '155px'}}
                           src={e.image_url}
                           alt={e.name}
                         />
@@ -75,17 +76,15 @@ export default class Cart extends Component {
                     </div>
                   ))
                 )}
-                <div
-                  style={{ display: "flex", justifyContent: "space-around" }}
-                >
+                <div style={{display: 'flex', justifyContent: 'space-around'}}>
                   <p>Order Total :</p>
                   {getCost()}
                 </div>
               </div>
             </>
-          );
+          )
         }}
       </CartContext.Consumer>
-    );
+    )
   }
 }

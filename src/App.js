@@ -1,67 +1,69 @@
-import { Component } from "react";
+/* eslint-disable */
 
-import { Switch, Route } from "react-router-dom";
+import {Component} from 'react'
 
-import Login from "./components/Login";
+import {Switch, Route} from 'react-router-dom'
 
-import ProtectedPath from "./components/ProtectedPath";
+import Login from './components/Login'
 
-import Home from "./components/Home";
+import ProtectedPath from './components/ProtectedPath'
 
-import Cart from "./components/Cart";
+import Home from './components/Home'
 
-import SpecificRest from "./components/SpecificRest";
+import Cart from './components/Cart'
 
-import CartContext from "./components/CartContext";
+import SpecificRest from './components/SpecificRest'
 
-import "./App.css";
+import CartContext from './components/CartContext'
+
+import './App.css'
 
 class App extends Component {
-  state = { cart: [] };
+  state = {cart: []}
 
   componentDidMount() {
-    const cartFromLC = localStorage.getItem("cart");
+    const cartFromLC = localStorage.getItem('cart')
     if (cartFromLC === null) {
-      this.setState({ cart: [] });
+      this.setState({cart: []})
     } else {
-      this.setState({ cart: JSON.parse(cartFromLC) });
+      this.setState({cart: JSON.parse(cartFromLC)})
     }
-    console.log("cartFromLC", cartFromLC);
+    console.log('cartFromLC', cartFromLC)
   }
 
-  increaseQuantity = (item) => {
-    const { cart } = this.state;
-    const index = cart.findIndex((e) => e.id === item);
-    cart[index]["quantity"] = cart[index]["quantity"] + 1;
-    localStorage.setItem("cart", JSON.stringify(cart));
-    this.setState({ cart });
-  };
-  decreaseQuantity = (item) => {
-    const { cart } = this.state;
-    const index = cart.findIndex((e) => e.id === item);
-    if (cart[index]["quantity"] !== 1) {
-      cart[index]["quantity"] = cart[index]["quantity"] - 1;
-      localStorage.setItem("cart", JSON.stringify(cart));
-      this.setState({ cart });
+  increaseQuantity = item => {
+    const {cart} = this.state
+    const index = cart.findIndex(e => e.id === item)
+    cart[index]['quantity'] = cart[index]['quantity'] + 1
+    localStorage.setItem('cart', JSON.stringify(cart))
+    this.setState({cart})
+  }
+  decreaseQuantity = item => {
+    const {cart} = this.state
+    const index = cart.findIndex(e => e.id === item)
+    if (cart[index]['quantity'] !== 1) {
+      cart[index]['quantity'] = cart[index]['quantity'] - 1
+      localStorage.setItem('cart', JSON.stringify(cart))
+      this.setState({cart})
     } else {
-      const newCart = cart.filter((e) => e.id !== item);
-      localStorage.setItem("cart", JSON.stringify(newCart));
-      this.setState({ cart: newCart });
+      const newCart = cart.filter(e => e.id !== item)
+      localStorage.setItem('cart', JSON.stringify(newCart))
+      this.setState({cart: newCart})
     }
-  };
+  }
 
-  addCartItem = (item) => {
-    const { cart } = this.state;
+  addCartItem = item => {
+    const {cart} = this.state
     if (!cart.includes(item)) {
-      item.quantity = 1;
-      this.setState({ cart: [...cart, item] });
-      localStorage.setItem("cart", JSON.stringify([...cart, item]));
+      item.quantity = 1
+      this.setState({cart: [...cart, item]})
+      localStorage.setItem('cart', JSON.stringify([...cart, item]))
     }
-  };
+  }
 
   render() {
-    const { cart } = this.state;
-    console.log("cart", cart);
+    const {cart} = this.state
+    console.log('cart', cart)
     return (
       <Switch>
         <CartContext.Provider
@@ -82,8 +84,8 @@ class App extends Component {
           />
         </CartContext.Provider>
       </Switch>
-    );
+    )
   }
 }
 
-export default App;
+export default App

@@ -1,61 +1,62 @@
-import React, { Component } from "react";
+import React, {Component} from 'react'
 
-import Cookies from "js-cookie";
+import Cookies from 'js-cookie'
 
-import { Redirect } from "react-router-dom";
+import {Redirect} from 'react-router-dom'
 
-import Hat from "../assets/LoginPage/Hat.svg";
+import Hat from '../assets/LoginPage/Hat.svg'
 
-import Side from "../assets/LoginPage/Rectangle 1456.svg";
+import Side from '../assets/LoginPage/Rectangle 1456.svg'
 
-import "./index.css";
+import './index.css'
 
 export default class Login extends Component {
-  state = { username: "", password: "", errorStatus: "" };
+  state = {username: '', password: '', errorStatus: ''}
 
-  updateUserName = (event) => {
-    this.setState({ username: event.target.value });
-  };
-  updatePassword = (event) => {
-    this.setState({ password: event.target.value });
-  };
+  updateUserName = event => {
+    this.setState({username: event.target.value})
+  }
 
-  checkUser = async (event) => {
-    event.preventDefault();
-    const { username, password } = this.state;
-    const url = "https://apis.ccbp.in/login";
-    let userDetails = {};
-    if (username === "sumanthkumar" && password === "sumanthkumar") {
+  updatePassword = event => {
+    this.setState({password: event.target.value})
+  }
+
+  checkUser = async event => {
+    event.preventDefault()
+    const {username, password} = this.state
+    const url = 'https://apis.ccbp.in/login'
+    let userDetails = {}
+    if (username === 'sumanthkumar' && password === 'sumanthkumar') {
       userDetails = {
-        username: "rahul",
-        password: "rahul@2021",
-      };
+        username: 'rahul',
+        password: 'rahul@2021',
+      }
     } else {
       userDetails = {
         username,
         password,
-      };
+      }
     }
 
-    const options = { method: "POST", body: JSON.stringify(userDetails) };
-    const res = await fetch(url, options);
+    const options = {method: 'POST', body: JSON.stringify(userDetails)}
+    const res = await fetch(url, options)
     if (res.ok) {
-      const data = await res.json();
-      Cookies.set("jwt_token", data.jwt_token, { expires: 30 });
-      this.setState({ errorStatus: "" });
-      const { history } = this.props;
-      history.replace("/");
+      const data = await res.json()
+      Cookies.set('jwt_token', data.jwt_token, {expires: 30})
+      this.setState({errorStatus: ''})
+      const {history} = this.props
+      history.replace('/')
     } else {
-      const data = await res.json();
-      this.setState({ errorStatus: data.error_msg });
+      const data = await res.json()
+      this.setState({errorStatus: data.error_msg})
     }
-  };
+  }
 
   render() {
-    const { username, password, errorStatus } = this.state;
-    const token = Cookies.get("jwt_token");
+    const {username, password, errorStatus} = this.state
+    const token = Cookies.get('jwt_token')
     if (token !== undefined) {
-      return <Redirect to="/" />;
+      return <Redirect to="/" />
     }
     return (
       <div className="main">
@@ -73,15 +74,17 @@ export default class Login extends Component {
               <p className="LoginText">Login</p>
             </div>
             <form onSubmit={this.checkUser}>
-              <label htmlFor="">USERNAME</label>
+              <label htmlFor="un">USERNAME</label>
               <input
+                id="un"
                 value={username}
                 onChange={this.updateUserName}
                 type="text"
                 className="form-control"
               />
-              <label htmlFor="">PASSWORD</label>
+              <label htmlFor="pw">PASSWORD</label>
               <input
+                id="pw"
                 value={password}
                 onChange={this.updatePassword}
                 type="password"
@@ -96,12 +99,12 @@ export default class Login extends Component {
         </div>
         <div className="justBG">
           <img
-            style={{ width: "100%", height: "100vh", objectFit: "cover" }}
+            style={{width: '100%', height: '100vh', objectFit: 'cover'}}
             src={Side}
             alt="website login"
           />
         </div>
       </div>
-    );
+    )
   }
 }

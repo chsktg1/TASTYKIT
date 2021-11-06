@@ -1,12 +1,12 @@
-import React, { Component } from "react";
+import React, {Component} from 'react'
 
-import Header from "../Header";
+import Header from '../Header'
 
-import Carousel from "../Carousel";
+import Carousel from '../Carousel'
 
-import Data from "../Data";
+import Data from '../Data'
 
-import Footer from "../Footer";
+import Footer from '../Footer'
 
 export default class Home extends Component {
   render() {
@@ -17,6 +17,6 @@ export default class Home extends Component {
         <Data />
         <Footer />
       </div>
-    );
+    )
   }
 }

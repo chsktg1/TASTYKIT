@@ -1,52 +1,54 @@
-import React, { Component } from "react";
-import Cookies from "js-cookie";
-import Header from "../Header";
-import { AiFillStar } from "react-icons/ai";
+import React, {Component} from 'react'
+import Cookies from 'js-cookie'
 
-import CartContext from "../CartContext";
+import {AiFillStar} from 'react-icons/ai'
 
-import BackG from "../assets/Rectangle1399.svg";
+import Header from '../Header'
 
-import LoadingView from "../LoadingView";
+import CartContext from '../CartContext'
 
-import "./index.css";
+import BackG from '../assets/Rectangle1399.svg'
+
+import LoadingView from '../LoadingView'
+
+import './index.css'
 
 export default class SpecificRest extends Component {
-  state = { isLoading: true, cart: [] };
+  state = {isLoading: true, cart: []}
 
   componentDidMount() {
-    this.getData();
+    this.getData()
   }
 
   getData = async () => {
-    const token = Cookies.get("jwt_token");
-    const { match } = this.props;
-    const { params } = match;
-    const { id } = params;
-    const url = `https://apis.ccbp.in/restaurants-list/${id}`;
+    const token = Cookies.get('jwt_token')
+    const {match} = this.props
+    const {params} = match
+    const {id} = params
+    const url = `https://apis.ccbp.in/restaurants-list/${id}`
     const options = {
       headers: {
         Authorization: `Bearer ${token}`,
       },
-    };
-    const res = await fetch(url, options);
-    if (res.ok) {
-      const data = await res.json();
-      console.log(data);
-      this.setState({ data, isLoading: false });
     }
-  };
+    const res = await fetch(url, options)
+    if (res.ok) {
+      const data = await res.json()
+      console.log(data)
+      this.setState({data, isLoading: false})
+    }
+  }
 
   render() {
     return (
       <CartContext.Consumer>
-        {(value) => {
-          const { isLoading, data } = this.state;
-          const { setCart } = value;
+        {value => {
+          const {isLoading, data} = this.state
+          const {setCart} = value
 
-          const addMeToCart = (item) => {
-            setCart(item);
-          };
+          const addMeToCart = item => {
+            setCart(item)
+          }
 
           return isLoading ? (
             <LoadingView td="restaurant-details-loader" />
@@ -57,28 +59,28 @@ export default class SpecificRest extends Component {
                 className="noTopPaddingSMC"
                 style={{
                   backgroundImage: `url('${BackG}')`,
-                  backgroundSize: "cover",
-                  padding: "40px",
-                  display: "flex",
-                  color: "white",
+                  backgroundSize: 'cover',
+                  padding: '40px',
+                  display: 'flex',
+                  color: 'white',
                 }}
               >
-                <div style={{ paddingRight: "20px" }}>
+                <div style={{paddingRight: '20px'}}>
                   <img src={data.image_url} alt="" className="resImage" />
                 </div>
                 <div>
                   <p>{data.name}</p>
                   <p>{data.cuisine}</p>
                   <p>{data.location}</p>
-                  <div style={{ display: "flex", marginRight: "15px" }}>
+                  <div style={{display: 'flex', marginRight: '15px'}}>
                     <div>
-                      <div style={{ display: "flex" }}>
-                        <AiFillStar color={"white"} />
+                      <div style={{display: 'flex'}}>
+                        <AiFillStar color="white" />
                         <p>{data.rating}</p>
                       </div>
                       <p>{data.reviews_count}+ Ratings</p>
                     </div>
-                    <div style={{ marginLeft: "30px" }}>
+                    <div style={{marginLeft: '30px'}}>
                       <p>{data.cost_for_two}</p>
                       <p>Cost for two</p>
                     </div>
@@ -89,35 +91,35 @@ export default class SpecificRest extends Component {
                 <ul
                   className="ul"
                   style={{
-                    marginTop: "64px",
-                    display: "flex",
-                    flexWrap: "wrap",
-                    justifyContent: "space-between",
-                    paddingLeft: "150px",
+                    marginTop: '64px',
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    justifyContent: 'space-between',
+                    paddingLeft: '150px',
                   }}
                 >
-                  {data.food_items.map((e) => (
+                  {data.food_items.map(e => (
                     <li
                       className="forMobileScreen"
                       key={e.id}
-                      style={{ display: "flex", width: "40vw", margin: "5px" }}
+                      style={{display: 'flex', width: '40vw', margin: '5px'}}
                     >
-                      <div className="forMB" style={{ marginRight: "30px" }}>
+                      <div className="forMB" style={{marginRight: '30px'}}>
                         <img
                           className="imageDish"
                           style={{
-                            width: "255px",
-                            height: "150px",
-                            borderRadius: "8px",
+                            width: '255px',
+                            height: '150px',
+                            borderRadius: '8px',
                           }}
                           src={e.image_url}
                           alt={e.name}
                         />
                       </div>
-                      <div style={{ display: "flex", flexDirection: "column" }}>
+                      <div style={{display: 'flex', flexDirection: 'column'}}>
                         <p>{e.name}</p>
                         <p>₹ {e.cost}</p>
-                        <div style={{ display: "flex" }}>
+                        <div style={{display: 'flex'}}>
                           <AiFillStar />
                           <p>{e.rating}</p>
                         </div>
@@ -135,9 +137,9 @@ export default class SpecificRest extends Component {
                 </ul>
               </div>
             </div>
-          );
+          )
         }}
       </CartContext.Consumer>
-    );
+    )
   }
 }
