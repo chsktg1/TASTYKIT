@@ -182,12 +182,20 @@ export default class Data extends Component {
           ))}
         </ul>
         <div className="navigationContainer">
-          <button testid="pagination-left-button" onClick={this.decrease}>
+          <button
+            className="button"
+            testid="pagination-left-button"
+            onClick={this.decrease}
+          >
             <BsFillArrowLeftSquareFill />
           </button>{' '}
           &nbsp; &nbsp; <span testid="active-page-number">{activePage}</span>{' '}
           &nbsp; of 20 &nbsp; &nbsp;
-          <button testid="pagination-right-button" onClick={this.increase}>
+          <button
+            className="button"
+            testid="pagination-right-button"
+            onClick={this.increase}
+          >
             <BsFillArrowRightSquareFill />
           </button>
         </div>

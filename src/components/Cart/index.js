@@ -40,15 +40,7 @@ export default class Cart extends Component {
           return (
             <>
               <Header />
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-around',
-                  marginTop: '30px',
-                }}
-              >
-                <p>Item</p> <p>Quantity</p> <p>Price</p>
-              </div>
+
               <ul>
                 {cartItems === [] ||
                 cartItems === null ||
@@ -58,43 +50,60 @@ export default class Cart extends Component {
                     <h1>No Orders Yet!</h1>
                     <p>Your cart is empty. Add something from the menu.</p>
                     <Link to="/">
-                      <button type="button" className="alp">
+                      <button
+                        className="btn btn-secondary"
+                        type="button"
+                        className="alp"
+                      >
                         Order now
                       </button>
                     </Link>
                   </>
                 ) : (
-                  cartItems.map(e => (
-                    <li
-                      key={e.id}
+                  <>
+                    <div
                       style={{
                         display: 'flex',
                         justifyContent: 'space-around',
                         marginTop: '30px',
                       }}
                     >
-                      <div testid="cartItem">
-                        {' '}
-                        <img
-                          style={{width: '155px'}}
-                          src={e.image_url}
-                          alt={e.name}
-                        />
-                        <h1>{e.name}</h1>
-                      </div>
-                      <div>
-                        <AiOutlineMinusSquare onClick={() => inc(e.id)} />
-                        <p>{e.quantity}</p>
-                        <AiOutlinePlusSquare onClick={() => dec(e.id)} />
-                      </div>
-                      <div>{e.cost * e.quantity}</div>
-                    </li>
-                  ))
+                      <p>Item</p> <p>Quantity</p> <p>Price</p>
+                    </div>
+                    {cartItems.map(e => (
+                      <li
+                        key={e.id}
+                        style={{
+                          display: 'flex',
+                          justifyContent: 'space-around',
+                          marginTop: '30px',
+                        }}
+                      >
+                        <div testid="cartItem">
+                          {' '}
+                          <img
+                            style={{width: '155px'}}
+                            src={e.image_url}
+                            alt={e.name}
+                          />
+                          <h1>{e.name}</h1>
+                        </div>
+                        <div>
+                          <AiOutlineMinusSquare onClick={() => inc(e.id)} />
+                          <p>{e.quantity}</p>
+                          <AiOutlinePlusSquare onClick={() => dec(e.id)} />
+                        </div>
+                        <div>{e.cost * e.quantity}</div>
+                      </li>
+                    ))}
+                    <div
+                      style={{display: 'flex', justifyContent: 'space-around'}}
+                    >
+                      <p>Order Total :</p>
+                      {getCost()}
+                    </div>
+                  </>
                 )}
-                <div style={{display: 'flex', justifyContent: 'space-around'}}>
-                  <p>Order Total :</p>
-                  {getCost()}
-                </div>
               </ul>
             </>
           )

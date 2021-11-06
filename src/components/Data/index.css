@@ -10,7 +10,7 @@ li {
   padding-left: '10px';
   background-color: '#f1f5f9';
 }
-button {
+.button {
   background-color: white;
   border: none;
 }
