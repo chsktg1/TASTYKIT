@@ -47,7 +47,7 @@ class Header extends Component {
                   className="nav-item nav-link"
                   to="/"
                 >
-                  Home
+                  <p>Home</p>
                 </Link>
               </li>
               <li>
@@ -56,7 +56,7 @@ class Header extends Component {
                   id={!homeOrCart ? 'colorIt' : 'NoColorIt'}
                   to="/cart"
                 >
-                  Cart
+                  <p>Cart</p>
                 </Link>
               </li>
               <button

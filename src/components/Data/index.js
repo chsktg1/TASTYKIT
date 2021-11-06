@@ -64,9 +64,9 @@ export default class Data extends Component {
     if (res.ok) {
       const data = await res.json()
 
-      this.setState({data: data.restaurants, error: false, isLoading: false})
+      this.setState({data: data.restaurants, isLoading: false})
     } else {
-      this.setState({error: true, isLoading: false})
+      this.setState({isLoading: false})
     }
   }
 
@@ -82,7 +82,7 @@ export default class Data extends Component {
   }
 
   render() {
-    const {isLoading, data, activePage, showDrop, rating} = this.state
+    const {isLoading, data, activePage, rating} = this.state
     return isLoading ? (
       <LoadingView td="restaurants-list-loader" />
     ) : (
