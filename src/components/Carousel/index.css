@@ -1,0 +1,21 @@
+.carouselContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.slick-slide img {
+  margin: auto;
+}
+
+.slider-image-width {
+  height: 5%;
+  width: 80%;
+}
+
+@media only screen and (max-width: 768px) {
+  .slider-container {
+    margin: 0px;
+  }
+}

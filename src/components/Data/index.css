@@ -1,0 +1,23 @@
+@media screen and (max-width: 786px) {
+  #box {
+    width: 80vw !important;
+  }
+}
+
+li {
+  list-style-type: none;
+  padding-right: "10px";
+  padding-left: "10px";
+  background-color: "#f1f5f9";
+}
+button {
+  background-color: white;
+  border: none;
+}
+
+.navigationContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}

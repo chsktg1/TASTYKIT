@@ -1,0 +1,15 @@
+li {
+  list-style-type: none;
+}
+.socialIconsHolder {
+  display: flex;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  padding-top: 60px;
+}

@@ -1,0 +1,101 @@
+.main {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: -5px;
+}
+
+.loginDiv {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+  padding: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.LoginText {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 40px;
+  color: #0f172a;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.extra {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+}
+
+h1 {
+  font-family: DM Sans;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 32px;
+  /* identical to box height, or 133% */
+
+  color: #f7931e;
+}
+
+.justBG {
+  width: 50vw;
+  border: 2px solid black;
+}
+.onlySmallScreen {
+  display: none;
+}
+
+.cssHelper {
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .notInSmallScreen {
+    display: none;
+  }
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
+  .extra {
+    order: 2;
+  }
+  .cssHelper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 40px;
+  }
+  .justBG {
+    display: none;
+  }
+  .onlySmallScreen {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  .justBGSmallScreen {
+    margin-right: -10px;
+    width: 387px;
+    height: 387px;
+  }
+
+  .smallImg {
+    border-bottom-left-radius: 249px;
+    width: 387px;
+  }
+}

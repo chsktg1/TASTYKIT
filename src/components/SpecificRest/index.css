@@ -1,0 +1,28 @@
+@media screen and (max-width: 768px) {
+  .imageDish {
+    width: 80vw !important;
+  }
+  .ul {
+    padding-left: 5px !important;
+  }
+  .resImage {
+    width: 40vw;
+    margin-top: 0;
+    margin-left: -70vw;
+    border-radius: 50vw;
+  }
+  .noTopPaddingSMC {
+    padding-top: 0 !important;
+  }
+  .forMobileScreen {
+    width: 50vw !important;
+  }
+  .forMB {
+    margin-right: 10px !important;
+  }
+}
+
+.resImage {
+  width: 445px;
+  height: 250px;
+}
