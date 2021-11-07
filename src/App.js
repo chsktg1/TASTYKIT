@@ -21,17 +21,27 @@ import NotFound from './components/NotFound'
 import './App.css'
 
 class App extends Component {
-  state = {cart: [], op: false}
-
-  componentDidMount() {
+  constructor(props) {
+    super(props)
     const cartFromLC = localStorage.getItem('cartData')
     if (cartFromLC === null) {
-      this.setState({cart: []})
+      this.state = {cart: [], op: false}
     } else {
-      this.setState({cart: JSON.parse(cartFromLC)})
+      this.state = {cart: JSON.parse(cartFromLC), op: false}
     }
-    console.log('cartFromLC', cartFromLC)
   }
+
+  // state = {cart: [], op: false}
+
+  // componentDidMount() {
+  //   const cartFromLC = localStorage.getItem('cartData')
+  //   if (cartFromLC === null) {
+  //     this.setState({cart: []})
+  //   } else {
+  //     this.setState({cart: JSON.parse(cartFromLC)})
+  //   }
+  //   console.log('cartFromLC', cartFromLC)
+  // }
 
   placingOrder = () => {
     this.setState({op: true})

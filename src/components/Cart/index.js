@@ -25,7 +25,7 @@ export default class Cart extends Component {
             orderPlaced,
             setOrderPlaced,
           } = value
-          console.log(orderPlaced)
+          console.log('cartItems', cartItems)
           const inc = id => {
             decQuantity(id)
           }
@@ -71,6 +71,7 @@ export default class Cart extends Component {
                   </>
                 ) : cartItems === [] ||
                   cartItems === null ||
+                  cartItems === undefined ||
                   cartItems.length === 0 ? (
                   <>
                     <img src={imageNoOrder} alt="empty cart" />
