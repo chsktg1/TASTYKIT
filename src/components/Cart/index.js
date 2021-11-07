@@ -74,7 +74,7 @@ export default class Cart extends Component {
                   cartItems.length === 0 ? (
                   <>
                     <img src={imageNoOrder} alt="empty cart" />
-                    <h1>No Orders Yet!</h1>
+                    <h1>No Order Yet!</h1>
                     <p>Your cart is empty. Add something from the menu.</p>
                     <Link to="/">
                       <button
@@ -110,7 +110,7 @@ export default class Cart extends Component {
                           {' '}
                           <img
                             style={{width: '155px'}}
-                            src={e.image_url}
+                            src={e.imageUrl}
                             alt={e.name}
                           />
                           <h1>{e.name}</h1>

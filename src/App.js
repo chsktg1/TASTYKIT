@@ -24,7 +24,7 @@ class App extends Component {
   state = {cart: [], op: false}
 
   componentDidMount() {
-    const cartFromLC = localStorage.getItem('cart')
+    const cartFromLC = localStorage.getItem('cartData')
     if (cartFromLC === null) {
       this.setState({cart: []})
     } else {
@@ -35,7 +35,7 @@ class App extends Component {
 
   placingOrder = () => {
     this.setState({op: true})
-    localStorage.removeItem('cart')
+    localStorage.removeItem('cartData')
     this.setState({cart: []})
   }
 
@@ -43,19 +43,20 @@ class App extends Component {
     const {cart} = this.state
     const index = cart.findIndex(e => e.id === item)
     cart[index]['quantity'] = cart[index]['quantity'] + 1
-    localStorage.setItem('cart', JSON.stringify(cart))
+    localStorage.setItem('cartData', JSON.stringify(cart))
     this.setState({cart})
   }
+
   decreaseQuantity = item => {
     const {cart} = this.state
     const index = cart.findIndex(e => e.id === item)
     if (cart[index]['quantity'] !== 1) {
       cart[index]['quantity'] = cart[index]['quantity'] - 1
-      localStorage.setItem('cart', JSON.stringify(cart))
+      localStorage.setItem('cartData', JSON.stringify(cart))
       this.setState({cart})
     } else {
       const newCart = cart.filter(e => e.id !== item)
-      localStorage.setItem('cart', JSON.stringify(newCart))
+      localStorage.setItem('cartData', JSON.stringify(newCart))
       this.setState({cart: newCart})
     }
   }
@@ -63,9 +64,14 @@ class App extends Component {
   addCartItem = item => {
     const {cart} = this.state
     if (!cart.includes(item)) {
-      item.quantity = 1
-      this.setState({cart: [...cart, item], op: false})
-      localStorage.setItem('cart', JSON.stringify([...cart, item]))
+      let a = {}
+      a.quantity = 1
+      a.cost = item.cost
+      a.imageUrl = item.image_url
+      a.id = item.id
+      a.name = item.name
+      this.setState({cart: [...cart, a], op: false})
+      localStorage.setItem('cartData', JSON.stringify([...cart, item]))
     }
   }
 
