@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import {Component} from 'react'
 
 import {Link, withRouter} from 'react-router-dom'
 
@@ -17,7 +17,6 @@ class Header extends Component {
 
   render() {
     const {homeOrCart} = this.props
-    console.log('homeOrCart', homeOrCart)
     return (
       <>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -59,13 +58,15 @@ class Header extends Component {
                   <p>Cart</p>
                 </Link>
               </li>
-              <button
-                type="button"
-                className="btn btn-primary"
-                onClick={this.LogMeOut}
-              >
-                Logout
-              </button>
+              <div>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={this.LogMeOut}
+                >
+                  Logout
+                </button>
+              </div>
             </ul>
           </div>
         </nav>

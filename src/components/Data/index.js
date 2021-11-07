@@ -100,7 +100,7 @@ export default class Data extends Component {
               Popular Restaurants
             </h1>
             <p>
-              Select Your favorite restaurant special dish and make your day
+              Select Your favourite restaurant special dish and make your day
               happy...
             </p>
           </div>
@@ -161,7 +161,7 @@ export default class Data extends Component {
                   />
                 </div>
                 <div>
-                  <p
+                  <h1
                     style={{
                       fontSize: '18px',
                       fontWeight: '700',
@@ -169,7 +169,7 @@ export default class Data extends Component {
                     }}
                   >
                     {e.name}
-                  </p>
+                  </h1>
                   <p>{e.cuisine}</p>
                   <div style={{display: 'flex'}}>
                     <AiFillStar />

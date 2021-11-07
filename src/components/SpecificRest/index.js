@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import {Component} from 'react'
 import Cookies from 'js-cookie'
 
 import {AiFillStar} from 'react-icons/ai'
@@ -34,7 +34,7 @@ export default class SpecificRest extends Component {
     const res = await fetch(url, options)
     if (res.ok) {
       const data = await res.json()
-      console.log(data)
+
       this.setState({data, isLoading: false})
     }
   }

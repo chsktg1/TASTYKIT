@@ -21,7 +21,7 @@ import NotFound from './components/NotFound'
 import './App.css'
 
 class App extends Component {
-  state = {cart: []}
+  state = {cart: [], op: false}
 
   componentDidMount() {
     const cartFromLC = localStorage.getItem('cart')
@@ -31,6 +31,12 @@ class App extends Component {
       this.setState({cart: JSON.parse(cartFromLC)})
     }
     console.log('cartFromLC', cartFromLC)
+  }
+
+  placingOrder = () => {
+    this.setState({op: true})
+    localStorage.removeItem('cart')
+    this.setState({cart: []})
   }
 
   increaseQuantity = item => {
@@ -58,14 +64,13 @@ class App extends Component {
     const {cart} = this.state
     if (!cart.includes(item)) {
       item.quantity = 1
-      this.setState({cart: [...cart, item]})
+      this.setState({cart: [...cart, item], op: false})
       localStorage.setItem('cart', JSON.stringify([...cart, item]))
     }
   }
 
   render() {
-    const {cart} = this.state
-    console.log('cart', cart)
+    const {cart, op} = this.state
     return (
       <CartContext.Provider
         value={{
@@ -73,6 +78,8 @@ class App extends Component {
           setCart: this.addCartItem,
           decQuantity: this.decreaseQuantity,
           incQuantity: this.increaseQuantity,
+          orderPlaced: op,
+          setOrderPlaced: this.placingOrder,
         }}
       >
         <Switch>
