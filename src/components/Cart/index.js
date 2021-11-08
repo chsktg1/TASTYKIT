@@ -101,13 +101,14 @@ export default class Cart extends Component {
                     {cartItems.map(e => (
                       <li
                         key={e.id}
+                        testid="cartItem"
                         style={{
                           display: 'flex',
                           justifyContent: 'space-around',
                           marginTop: '30px',
                         }}
                       >
-                        <div testid="cartItem">
+                        <div>
                           {' '}
                           <img
                             style={{width: '155px'}}
@@ -117,11 +118,15 @@ export default class Cart extends Component {
                           <h1>{e.name}</h1>
                         </div>
                         <div>
-                          <AiOutlineMinusSquare onClick={() => inc(e.id)} />
+                          <button testid="decrement-quantity">
+                            <AiOutlineMinusSquare onClick={() => inc(e.id)} />
+                          </button>
                           <p>{e.quantity}</p>
-                          <AiOutlinePlusSquare onClick={() => dec(e.id)} />
+                          <button testid="increment-quantity">
+                            <AiOutlinePlusSquare onClick={() => dec(e.id)} />
+                          </button>
                         </div>
-                        <div>{e.cost * e.quantity}</div>
+                        <div testid="total-price">{e.cost * e.quantity}</div>
                       </li>
                     ))}
                     <div

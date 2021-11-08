@@ -66,7 +66,11 @@ export default class SpecificRest extends Component {
                 }}
               >
                 <div style={{paddingRight: '20px'}}>
-                  <img src={data.image_url} alt="" className="resImage" />
+                  <img
+                    src={data.image_url}
+                    alt="restaurant"
+                    className="resImage"
+                  />
                 </div>
                 <div>
                   <p>{data.name}</p>
@@ -100,6 +104,7 @@ export default class SpecificRest extends Component {
                 >
                   {data.food_items.map(e => (
                     <li
+                      testid="foodItem"
                       className="forMobileScreen"
                       key={e.id}
                       style={{display: 'flex', width: '40vw', margin: '5px'}}
