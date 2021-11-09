@@ -1,7 +1,11 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 
-import {AiFillStar} from 'react-icons/ai'
+import {
+  AiFillStar,
+  AiOutlineMinusSquare,
+  AiOutlinePlusSquare,
+} from 'react-icons/ai'
 
 import Header from '../Header'
 
@@ -34,6 +38,7 @@ export default class SpecificRest extends Component {
     const res = await fetch(url, options)
     if (res.ok) {
       const data = await res.json()
+      data.food_items = data.food_items.map(e => ({quantity: 1, ...e}))
 
       this.setState({data, isLoading: false})
     }
@@ -44,10 +49,28 @@ export default class SpecificRest extends Component {
       <CartContext.Consumer>
         {value => {
           const {isLoading, data} = this.state
-          const {setCart} = value
+          const {setCart, incQuantity, decQuantity, cartItems} = value
 
           const addMeToCart = item => {
             setCart(item)
+          }
+
+          const showQuantity = e => {
+            console.log(cartItems)
+            console.log('e', e)
+            const ans = cartItems.filter(a => a.id === e.id)
+            console.log('ans', ans)
+            console.log(ans.quantity)
+            return ans[0].quantity
+          }
+
+          const whatToShow = item => {
+            const ans = cartItems.filter(e => e.id === item.id)
+            if (ans.length === 0) {
+              return true
+            }
+
+            return false
           }
 
           return isLoading ? (
@@ -129,13 +152,35 @@ export default class SpecificRest extends Component {
                           <p>{e.rating}</p>
                         </div>
                         <div>
-                          <button
-                            type="button"
-                            className="btn btn-outline-warning"
-                            onClick={() => addMeToCart(e)}
-                          >
-                            ADD
-                          </button>
+                          {whatToShow(e) ? (
+                            <button
+                              type="button"
+                              className="btn btn-outline-warning"
+                              onClick={() => addMeToCart(e)}
+                            >
+                              ADD
+                            </button>
+                          ) : (
+                            <>
+                              <button
+                                testid="decrement-count"
+                                type="button"
+                                onClick={() => decQuantity(e.id)}
+                              >
+                                <AiOutlineMinusSquare />
+                              </button>
+                              <span testid="active-count">
+                                {showQuantity(e)}
+                              </span>
+                              <button
+                                testid="increment-count"
+                                type="button"
+                                onClick={() => incQuantity(e.id)}
+                              >
+                                <AiOutlinePlusSquare />
+                              </button>
+                            </>
+                          )}
                         </div>
                       </div>
                     </li>

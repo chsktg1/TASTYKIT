@@ -121,7 +121,7 @@ export default class Cart extends Component {
                           <button testid="decrement-quantity">
                             <AiOutlineMinusSquare onClick={() => inc(e.id)} />
                           </button>
-                          <p>{e.quantity}</p>
+                          <h1>{e.quantity}</h1>
                           <button testid="increment-quantity">
                             <AiOutlinePlusSquare onClick={() => dec(e.id)} />
                           </button>
