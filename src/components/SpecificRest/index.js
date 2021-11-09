@@ -96,7 +96,7 @@ export default class SpecificRest extends Component {
                   />
                 </div>
                 <div>
-                  <p>{data.name}</p>
+                  <h1>{data.name}</h1>
                   <p>{data.cuisine}</p>
                   <p>{data.location}</p>
                   <div style={{display: 'flex', marginRight: '15px'}}>
@@ -145,8 +145,9 @@ export default class SpecificRest extends Component {
                         />
                       </div>
                       <div style={{display: 'flex', flexDirection: 'column'}}>
-                        <p>{e.name}</p>
-                        <p>₹ {e.cost}</p>
+                        <h1>{e.name}</h1>
+                        <span>₹</span>
+                        <p>{e.cost}</p>
                         <div style={{display: 'flex'}}>
                           <AiFillStar />
                           <p>{e.rating}</p>
