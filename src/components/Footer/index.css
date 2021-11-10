@@ -13,3 +13,12 @@ li {
   padding: 20px;
   padding-top: 60px;
 }
+.onss {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .onss {
+    display: inline;
+  }
+}

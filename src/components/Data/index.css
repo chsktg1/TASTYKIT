@@ -21,3 +21,10 @@ li {
   align-items: center;
   padding: 20px;
 }
+.newButton {
+  border: none;
+  background-color: white;
+}
+.resName {
+  color: black !important;
+}

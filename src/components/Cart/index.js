@@ -13,6 +13,8 @@ import {Link} from 'react-router-dom'
 
 import Tick from '../assets/Vector.png'
 
+import './index.css'
+
 export default class Cart extends Component {
   render() {
     return (
@@ -108,25 +110,73 @@ export default class Cart extends Component {
                           marginTop: '30px',
                         }}
                       >
-                        <div>
-                          {' '}
-                          <img
-                            style={{width: '155px'}}
-                            src={e.imageUrl}
-                            alt={e.name}
-                          />
-                          <h1>{e.name}</h1>
+                        <div className="oneExtraDiv">
+                          <div className="imageNameContainer">
+                            {' '}
+                            <img
+                              className="dishImage"
+                              src={e.imageUrl}
+                              alt={e.name}
+                            />
+                            <h1 className="dishName">{e.name}</h1>
+                          </div>
+
+                          <div className="OLS">
+                            <div>
+                              <button
+                                className="newButton"
+                                testid="decrement-quantity"
+                                onClick={() => inc(e.id)}
+                              >
+                                <AiOutlineMinusSquare />
+                              </button>
+                            </div>
+                            <p testid="item-quantity" className="quant">
+                              {e.quantity}
+                            </p>{' '}
+                            <div>
+                              <button
+                                className="newButton"
+                                testid="increment-quantity"
+                                onClick={() => dec(e.id)}
+                              >
+                                <AiOutlinePlusSquare />
+                              </button>
+                            </div>
+                          </div>
+
+                          <div className="OLS" testid="total-price">
+                            {e.cost * e.quantity}
+                          </div>
+
+                          <div className="Setquant alp">
+                            <div>
+                              <button
+                                className="newButton"
+                                testid="decrement-quantity"
+                              >
+                                <AiOutlineMinusSquare
+                                  onClick={() => inc(e.id)}
+                                />
+                              </button>
+                            </div>
+                            <h1 className="quant">{e.quantity}</h1>
+                            <div>
+                              <button
+                                className="newButton"
+                                testid="increment-quantity"
+                              >
+                                <AiOutlinePlusSquare
+                                  onClick={() => dec(e.id)}
+                                />
+                              </button>
+                            </div>
+
+                            <div testid="total-price">
+                              {e.cost * e.quantity}
+                            </div>
+                          </div>
                         </div>
-                        <div>
-                          <button testid="decrement-quantity">
-                            <AiOutlineMinusSquare onClick={() => inc(e.id)} />
-                          </button>
-                          <h1>{e.quantity}</h1>
-                          <button testid="increment-quantity">
-                            <AiOutlinePlusSquare onClick={() => dec(e.id)} />
-                          </button>
-                        </div>
-                        <div testid="total-price">{e.cost * e.quantity}</div>
                       </li>
                     ))}
                     <div

@@ -9,6 +9,7 @@ import {
 
 const Footer = () => (
   <div className="footer" style={{backgroundColor: '#0F172A'}}>
+    <img src="" alt="website-footer-logo" className="onss" />
     <h1 style={{color: 'white'}}>Tasty Kitchens</h1>
     <p style={{color: 'white'}}>
       The only thing we are serious about is food. Contact us on

@@ -146,13 +146,21 @@ export default class SpecificRest extends Component {
                       </div>
                       <div style={{display: 'flex', flexDirection: 'column'}}>
                         <h1>{e.name}</h1>
-                        <span>₹</span>
-                        <p>{e.cost}</p>
-                        <div style={{display: 'flex'}}>
+                        <div
+                          className="moveUpOnSmallScreen"
+                          style={{display: 'flex'}}
+                        >
+                          <span>₹</span>
+                          <p>{e.cost}</p>
+                        </div>
+                        <div
+                          className="moveUpOnSmallScreen"
+                          style={{display: 'flex'}}
+                        >
                           <AiFillStar />
                           <p>{e.rating}</p>
                         </div>
-                        <div>
+                        <div className="moveUpOnSmallScreen">
                           {whatToShow(e) ? (
                             <button
                               type="button"
@@ -166,6 +174,7 @@ export default class SpecificRest extends Component {
                               <button
                                 testid="decrement-count"
                                 type="button"
+                                className="cleanButton"
                                 onClick={() => decQuantity(e.id)}
                               >
                                 <AiOutlineMinusSquare />
@@ -176,6 +185,7 @@ export default class SpecificRest extends Component {
                               <button
                                 testid="increment-count"
                                 type="button"
+                                className="cleanButton"
                                 onClick={() => incQuantity(e.id)}
                               >
                                 <AiOutlinePlusSquare />

@@ -113,7 +113,11 @@ export default class Data extends Component {
             {rating}
 
             <div style={{marginTop: '-1px', marginRight: '4px'}}>
-              <button type="button" onClick={this.showDropDown}>
+              <button
+                type="button"
+                className="newButton"
+                onClick={this.showDropDown}
+              >
                 <BsFillCaretDownFill />
               </button>
               {true ? (
@@ -162,6 +166,7 @@ export default class Data extends Component {
                 </div>
                 <div>
                   <h1
+                    className="resName"
                     style={{
                       fontSize: '18px',
                       fontWeight: '700',
