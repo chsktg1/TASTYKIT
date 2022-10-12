@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/tasty-kitchens/static/css/main.c95e7a39.chunk.css",
+    "main.js": "/tasty-kitchens/static/js/main.5965e96e.chunk.js",
+    "main.js.map": "/tasty-kitchens/static/js/main.5965e96e.chunk.js.map",
+    "runtime-main.js": "/tasty-kitchens/static/js/runtime-main.3a0b79dd.js",
+    "runtime-main.js.map": "/tasty-kitchens/static/js/runtime-main.3a0b79dd.js.map",
+    "static/css/2.4d3e68ad.chunk.css": "/tasty-kitchens/static/css/2.4d3e68ad.chunk.css",
+    "static/js/2.714a46df.chunk.js": "/tasty-kitchens/static/js/2.714a46df.chunk.js",
+    "static/js/2.714a46df.chunk.js.map": "/tasty-kitchens/static/js/2.714a46df.chunk.js.map",
+    "index.html": "/tasty-kitchens/index.html",
+    "static/css/2.4d3e68ad.chunk.css.map": "/tasty-kitchens/static/css/2.4d3e68ad.chunk.css.map",
+    "static/css/main.c95e7a39.chunk.css.map": "/tasty-kitchens/static/css/main.c95e7a39.chunk.css.map",
+    "static/js/2.714a46df.chunk.js.LICENSE.txt": "/tasty-kitchens/static/js/2.714a46df.chunk.js.LICENSE.txt",
+    "static/media/Hat.6a31a10a.svg": "/tasty-kitchens/static/media/Hat.6a31a10a.svg",
+    "static/media/Rectangle 1456.8ec8fe5f.svg": "/tasty-kitchens/static/media/Rectangle 1456.8ec8fe5f.svg",
+    "static/media/Rectangle1399.9922c196.svg": "/tasty-kitchens/static/media/Rectangle1399.9922c196.svg",
+    "static/media/cooking1.a9957305.png": "/tasty-kitchens/static/media/cooking1.a9957305.png",
+    "static/media/erroring1.9d692275.png": "/tasty-kitchens/static/media/erroring1.9d692275.png",
+    "static/media/slick-theme.css": "/tasty-kitchens/static/media/slick.c94f7671.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3a0b79dd.js",
+    "static/css/2.4d3e68ad.chunk.css",
+    "static/js/2.714a46df.chunk.js",
+    "static/css/main.c95e7a39.chunk.css",
+    "static/js/main.5965e96e.chunk.js"
+  ]
+}
