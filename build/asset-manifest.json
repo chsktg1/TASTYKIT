@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/TASTYKIT/static/css/main.c95e7a39.chunk.css",
+    "main.js": "/TASTYKIT/static/js/main.e02bf21d.chunk.js",
+    "main.js.map": "/TASTYKIT/static/js/main.e02bf21d.chunk.js.map",
+    "runtime-main.js": "/TASTYKIT/static/js/runtime-main.fde89a4d.js",
+    "runtime-main.js.map": "/TASTYKIT/static/js/runtime-main.fde89a4d.js.map",
+    "static/css/2.4e22eccb.chunk.css": "/TASTYKIT/static/css/2.4e22eccb.chunk.css",
+    "static/js/2.714a46df.chunk.js": "/TASTYKIT/static/js/2.714a46df.chunk.js",
+    "static/js/2.714a46df.chunk.js.map": "/TASTYKIT/static/js/2.714a46df.chunk.js.map",
+    "index.html": "/TASTYKIT/index.html",
+    "static/css/2.4e22eccb.chunk.css.map": "/TASTYKIT/static/css/2.4e22eccb.chunk.css.map",
+    "static/css/main.c95e7a39.chunk.css.map": "/TASTYKIT/static/css/main.c95e7a39.chunk.css.map",
+    "static/js/2.714a46df.chunk.js.LICENSE.txt": "/TASTYKIT/static/js/2.714a46df.chunk.js.LICENSE.txt",
+    "static/media/Hat.6a31a10a.svg": "/TASTYKIT/static/media/Hat.6a31a10a.svg",
+    "static/media/Rectangle 1456.8ec8fe5f.svg": "/TASTYKIT/static/media/Rectangle 1456.8ec8fe5f.svg",
+    "static/media/Rectangle1399.9922c196.svg": "/TASTYKIT/static/media/Rectangle1399.9922c196.svg",
+    "static/media/cooking1.a9957305.png": "/TASTYKIT/static/media/cooking1.a9957305.png",
+    "static/media/erroring1.9d692275.png": "/TASTYKIT/static/media/erroring1.9d692275.png",
+    "static/media/slick-theme.css": "/TASTYKIT/static/media/slick.c94f7671.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fde89a4d.js",
+    "static/css/2.4e22eccb.chunk.css",
+    "static/js/2.714a46df.chunk.js",
+    "static/css/main.c95e7a39.chunk.css",
+    "static/js/main.e02bf21d.chunk.js"
+  ]
+}
