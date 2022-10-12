@@ -1,6 +1,6 @@
 {
   "name": "tasty-kitchens",
-  "homepage": "http://chsktg1.github.io/tasty-kitchens",
+  "homepage": "http://chsktg1.github.io/TASTYKIT",
   "private": true,
   "version": "1.0.0",
   "engines": {
@@ -39,7 +39,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
     "lint": "eslint .",
     "lint:fix": "eslint --fix src/",
