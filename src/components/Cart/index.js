@@ -80,11 +80,7 @@ export default class Cart extends Component {
                     <h1>No Order Yet!</h1>
                     <p>Your cart is empty. Add something from the menu.</p>
                     <Link to="/">
-                      <button
-                        className="btn btn-secondary"
-                        type="button"
-                        className="alp"
-                      >
+                      <button className="btn btn-secondary alp" type="button">
                         Order now
                       </button>
                     </Link>
@@ -101,93 +97,111 @@ export default class Cart extends Component {
                       <p>Item</p> <p>Quantity</p> <p>Price</p>
                     </div>
                     {cartItems.map(e => (
-                      <li
-                        key={e.id}
-                        testid="cartItem"
-                        style={{
-                          display: 'flex',
-                          justifyContent: 'space-around',
-                          marginTop: '30px',
-                        }}
-                      >
-                        <div className="oneExtraDiv">
-                          <div className="imageNameContainer">
-                            {' '}
-                            <img
-                              className="dishImage"
-                              src={e.imageUrl}
-                              alt={e.name}
-                            />
-                            <h1 className="dishName">{e.name}</h1>
-                          </div>
+                      <>
+                        <table>
+                          <tr>
+                            <th>Item</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                          </tr>
+                          <tr>
+                            <th>
+                              <h1 className="dishName">{e.name}</h1>
+                              <img
+                                className="dishImage"
+                                src={e.imageUrl}
+                                alt={e.name}
+                              />
+                            </th>
+                          </tr>
+                        </table>
 
-                          <div className="OLS">
-                            <div>
-                              <button
-                                className="newButton"
-                                testid="decrement-quantity"
-                                onClick={() => inc(e.id)}
-                              >
-                                <AiOutlineMinusSquare />
-                              </button>
+                        <li
+                          key={e.id}
+                          testid="cartItem"
+                          style={{
+                            display: 'flex',
+                            justifyContent: 'space-around',
+                            marginTop: '30px',
+                          }}
+                        >
+                          <div className="oneExtraDiv">
+                            <div className="imageNameContainer">
+                              <h1 className="dishName">{e.name}</h1>
+                              <img
+                                className="dishImage"
+                                src={e.imageUrl}
+                                alt={e.name}
+                              />
                             </div>
-                            <p testid="item-quantity" className="quant">
-                              {e.quantity}
-                            </p>{' '}
-                            <div>
-                              <button
-                                className="newButton"
-                                testid="increment-quantity"
-                                onClick={() => dec(e.id)}
-                              >
-                                <AiOutlinePlusSquare />
-                              </button>
-                            </div>
-                          </div>
 
-                          <div className="OLS" testid="total-price">
-                            {e.cost * e.quantity}
-                          </div>
-
-                          <div className="Setquant alp">
-                            <div>
-                              <button
-                                className="newButton"
-                                testid="decrement-quantity"
-                              >
-                                <AiOutlineMinusSquare
+                            <div className="OLS">
+                              <div>
+                                <button
+                                  className="newButton"
+                                  testid="decrement-quantity"
                                   onClick={() => inc(e.id)}
-                                />
-                              </button>
-                            </div>
-                            <h1 className="quant">{e.quantity}</h1>
-                            <div>
-                              <button
-                                className="newButton"
-                                testid="increment-quantity"
-                              >
-                                <AiOutlinePlusSquare
+                                >
+                                  <AiOutlineMinusSquare />
+                                </button>
+                              </div>
+                              <p testid="item-quantity" className="quant">
+                                {e.quantity}
+                              </p>
+                              <div>
+                                <button
+                                  className="newButton"
+                                  testid="increment-quantity"
                                   onClick={() => dec(e.id)}
-                                />
-                              </button>
+                                >
+                                  <AiOutlinePlusSquare />
+                                </button>
+                              </div>
                             </div>
 
-                            <div testid="total-price">
+                            <div className="OLS" testid="total-price">
                               {e.cost * e.quantity}
                             </div>
+
+                            <div className="Setquant alp">
+                              <div>
+                                <button
+                                  className="newButton"
+                                  testid="decrement-quantity"
+                                >
+                                  <AiOutlineMinusSquare
+                                    onClick={() => inc(e.id)}
+                                  />
+                                </button>
+                              </div>
+                              <h1 className="quant">{e.quantity}</h1>
+                              <div>
+                                <button
+                                  className="newButton"
+                                  testid="increment-quantity"
+                                >
+                                  <AiOutlinePlusSquare
+                                    onClick={() => dec(e.id)}
+                                  />
+                                </button>
+                              </div>
+
+                              <div testid="total-price">
+                                {e.cost * e.quantity}
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      </li>
+                        </li>
+                      </>
                     ))}
-                    <div
-                      style={{display: 'flex', justifyContent: 'space-around'}}
-                    >
+                    <div className="order-total">
                       <p>Order Total :</p>
                       {getCost()}
                     </div>
                     <button
                       type="button"
                       className="btn btn-info"
+                      style={{marginLeft: '80vw'}}
                       onClick={placeOrder}
                     >
                       Place Order

@@ -37,7 +37,10 @@ export default class Login extends Component {
         password,
       }
     }
+    this.commonLogin(url, userDetails)
+  }
 
+  commonLogin = async (url, userDetails) => {
     const options = {method: 'POST', body: JSON.stringify(userDetails)}
     const res = await fetch(url, options)
     if (res.ok) {
@@ -50,6 +53,15 @@ export default class Login extends Component {
       const data = await res.json()
       this.setState({errorStatus: data.error_msg})
     }
+  }
+
+  loginAsGuest = () => {
+    const userDetails = {
+      username: 'rahul',
+      password: 'rahul@2021',
+    }
+    const url = 'https://apis.ccbp.in/login'
+    this.commonLogin(url, userDetails)
   }
 
   render() {
@@ -93,6 +105,14 @@ export default class Login extends Component {
               <p>{errorStatus}</p>
               <button type="submit" className="btn btn-primary">
                 Login
+              </button>
+              <br />
+              <button
+                onClick={this.loginAsGuest}
+                type="button"
+                className="btn btn-secondary"
+              >
+                Login as a Guest
               </button>
             </form>
           </div>

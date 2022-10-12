@@ -26,6 +26,7 @@
 
 .imageNameContainer {
   display: flex;
+  flex-direction: column;
 }
 
 .oneExtraDiv {
@@ -47,6 +48,18 @@
 
 .alp {
   display: none;
+}
+
+.order-total {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10%;
+  font-weight: bold;
+}
+
+.OLS {
+  display: flex;
+  /* flex-direction: column; */
 }
 
 @media screen and (max-width: 768px) {
