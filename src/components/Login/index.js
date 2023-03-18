@@ -8,6 +8,8 @@ import Hat from '../assets/LoginPage/Hat.svg'
 
 import Side from '../assets/LoginPage/Rectangle 1456.svg'
 
+import BGU from '../assets/3692584.webp'
+
 import './index.css'
 
 export default class Login extends Component {
@@ -120,7 +122,7 @@ export default class Login extends Component {
         <div className="justBG">
           <img
             style={{width: '100%', height: '100vh', objectFit: 'cover'}}
-            src={Side}
+            src={BGU}
             alt="website login"
           />
         </div>

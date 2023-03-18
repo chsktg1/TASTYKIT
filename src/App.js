@@ -12,6 +12,8 @@ import Home from './components/Home'
 
 import Cart from './components/Cart'
 
+import Diet from './components/Diet'
+
 import SpecificRest from './components/SpecificRest'
 
 import CartContext from './components/CartContext'
@@ -107,6 +109,7 @@ class App extends Component {
             path="/restaurant/:id"
             component={SpecificRest}
           />
+          <ProtectedPath exact path="/diet" component={Diet} />
           <Route component={NotFound} />
         </Switch>
       </CartContext.Provider>
