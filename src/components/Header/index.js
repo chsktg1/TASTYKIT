@@ -40,11 +40,11 @@ class Header extends Component {
             id="navbarNavAltMarkup"
           >
             <ul className="navbar-nav">
-              <l1 className="nav-item nav-link">
-                <Link to="/diet">
+              <li>
+                <Link className="nav-item nav-link" to="/diet">
                   <p>Dietary Restrictions</p>
                 </Link>
-              </l1>
+              </li>
               <li>
                 <Link
                   id={homeOrCart ? 'colorIt' : 'NoColorIt'}

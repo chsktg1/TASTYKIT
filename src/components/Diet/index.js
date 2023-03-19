@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import './index.css'
+import Header from '../Header'
 
 const API_KEY = 'd0b5791c74fd49378b83e4b3d2135796' // Replace with your Spoonacular API key
 
@@ -117,132 +118,135 @@ class DietForm extends Component {
     } = this.state
 
     return (
-      <div>
-        <form className="form-container" onSubmit={this.handleSubmit}>
-          <label className="form-label">
-            Vegetarian:
-            <input
-              className="form-checkbox"
-              name="vegetarian"
-              type="checkbox"
-              checked={vegetarian}
-              onChange={this.handleInputChange}
-            />
-          </label>
-          <label className="form-label">
-            Vegan:
-            <input
-              className="form-checkbox"
-              name="vegan"
-              type="checkbox"
-              checked={vegan}
-              onChange={this.handleInputChange}
-            />
-          </label>
-          <label className="form-label">
-            Gluten-free:
-            <input
-              className="form-checkbox"
-              name="glutenFree"
-              type="checkbox"
-              checked={glutenFree}
-              onChange={this.handleInputChange}
-            />
-          </label>
-          <label className="form-label">
-            Dairy-free:
-            <input
-              className="form-checkbox"
-              name="dairyFree"
-              type="checkbox"
-              checked={dairyFree}
-              onChange={this.handleInputChange}
-            />
-          </label>
-          <button type="submit">Submit</button>
-        </form>
-        {isLoading && <p>Loading recipes...</p>}
-        {error && <p>Failed to fetch recipes: {error.message}</p>}
-        {recipes.length > 0 && (
-          <ul>
-            {recipes.map(recipe => (
-              <li key={recipe.id}>
-                <button
-                  className="recipeButton"
-                  type="button"
-                  onClick={() => this.handleRecipeClick(recipe.id)}
-                >
-                  {recipe.title}
-                </button>
-              </li>
-            ))}
-          </ul>
-        )}
-
-        {selectedRecipe && (
-          // <div>
-          //   {recipeDetails.map(step => (
-          //     <div key={step.number}>
-          //       <h3>Step {step.number}</h3>
-          //       <p>{step.step}</p>
-          //       <h4>Ingredients:</h4>
-          //       <ul>
-          //         {step.ingredients.map(ingredient => (
-          //           <li key={ingredient.id}>{ingredient.name}</li>
-          //         ))}
-          //       </ul>
-          //       <h4>Equipment:</h4>
-          //       <ul>
-          //         {step.equipment.map(item => (
-          //           <li key={item.id}>{item.name}</li>
-          //         ))}
-          //       </ul>
-          //       {step.length && (
-          //         <p>
-          //           Cooking Time: {step.length.number} {step.length.unit}
-          //         </p>
-          //       )}
-          //     </div>
-          //   ))}
-          // </div>
-
-          <div>
-            {/* {('{console.log(selectedRecipe)}', console.log(selectedRecipe))} */}
-            <h2>{recipeDetails.title}</h2>
-            <div className="imageDiv">
-              <img
-                className="recipeImage"
-                src={recipeDetails.image}
-                alt={recipeDetails.title}
+      <div className="body">
+        <Header />
+        <div>
+          <form className="form-container" onSubmit={this.handleSubmit}>
+            <label className="form-label">
+              Vegetarian:
+              <input
+                className="form-checkbox"
+                name="vegetarian"
+                type="checkbox"
+                checked={vegetarian}
+                onChange={this.handleInputChange}
               />
-            </div>
-
-            <h3>Ingredients to use:</h3>
-            <ol>
-              {selectedRecipe &&
-                recipeDetails.allIngredients.map(e => <li>{e}</li>)}
-            </ol>
+            </label>
+            <label className="form-label">
+              Vegan:
+              <input
+                className="form-checkbox"
+                name="vegan"
+                type="checkbox"
+                checked={vegan}
+                onChange={this.handleInputChange}
+              />
+            </label>
+            <label className="form-label">
+              Gluten-free:
+              <input
+                className="form-checkbox"
+                name="glutenFree"
+                type="checkbox"
+                checked={glutenFree}
+                onChange={this.handleInputChange}
+              />
+            </label>
+            <label className="form-label">
+              Dairy-free:
+              <input
+                className="form-checkbox"
+                name="dairyFree"
+                type="checkbox"
+                checked={dairyFree}
+                onChange={this.handleInputChange}
+              />
+            </label>
+            <button type="submit">Submit</button>
+          </form>
+          {isLoading && <p>Loading recipes...</p>}
+          {error && <p>Failed to fetch recipes: {error.message}</p>}
+          {recipes.length > 0 && (
             <ul>
-              {/* {recipeDetails.analyzedInstructions.steps.map(ing => (
+              {recipes.map(recipe => (
+                <li key={recipe.id}>
+                  <button
+                    className="recipeButton"
+                    type="button"
+                    onClick={() => this.handleRecipeClick(recipe.id)}
+                  >
+                    {recipe.title}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {selectedRecipe && (
+            // <div>
+            //   {recipeDetails.map(step => (
+            //     <div key={step.number}>
+            //       <h3>Step {step.number}</h3>
+            //       <p>{step.step}</p>
+            //       <h4>Ingredients:</h4>
+            //       <ul>
+            //         {step.ingredients.map(ingredient => (
+            //           <li key={ingredient.id}>{ingredient.name}</li>
+            //         ))}
+            //       </ul>
+            //       <h4>Equipment:</h4>
+            //       <ul>
+            //         {step.equipment.map(item => (
+            //           <li key={item.id}>{item.name}</li>
+            //         ))}
+            //       </ul>
+            //       {step.length && (
+            //         <p>
+            //           Cooking Time: {step.length.number} {step.length.unit}
+            //         </p>
+            //       )}
+            //     </div>
+            //   ))}
+            // </div>
+
+            <div>
+              {/* {('{console.log(selectedRecipe)}', console.log(selectedRecipe))} */}
+              <h2>{recipeDetails.title}</h2>
+              <div className="imageDiv">
+                <img
+                  className="recipeImage"
+                  src={recipeDetails.image}
+                  alt={recipeDetails.title}
+                />
+              </div>
+
+              <h3>Ingredients to use:</h3>
+              <ol>
+                {selectedRecipe &&
+                  recipeDetails.allIngredients.map(e => <li>{e}</li>)}
+              </ol>
+              <ul>
+                {/* {recipeDetails.analyzedInstructions.steps.map(ing => (
                 <li key={ing}>{ing.step}</li>
               ))} */}
-              {/* {console.log(
+                {/* {console.log(
                 'recipeDetails.analyzedInstructions.steps',
                 JSON.stringify(recipeDetails.analyzedInstructions[0].steps),
               )} */}
-              <h4>Procedure</h4>
-              {recipeDetails.analyzedInstructions[0].steps.map(e => (
-                <>
-                  <p>
-                    <span>{JSON.stringify(e.number)}</span> .{e.step}
-                  </p>
-                </>
-              ))}
-            </ul>
-            {/* <h3>Instructions:</h3>
+                <h4>Procedure</h4>
+                {recipeDetails.analyzedInstructions[0].steps.map(e => (
+                  <>
+                    <p className="recipe-para">
+                      <span>{JSON.stringify(e.number)}</span> .{e.step}
+                    </p>
+                  </>
+                ))}
+              </ul>
+              {/* <h3>Instructions:</h3>
             <p>{recipeDetails.instructions}</p> */}
-          </div>
-        )}
+            </div>
+          )}
+        </div>
       </div>
     )
   }
