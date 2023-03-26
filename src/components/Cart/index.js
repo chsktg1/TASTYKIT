@@ -55,7 +55,7 @@ export default class Cart extends Component {
 
           return (
             <>
-              <Header />
+              <Header cart />
               <ul>
                 {orderPlaced ? (
                   <>
@@ -75,8 +75,10 @@ export default class Cart extends Component {
                   cartItems === null ||
                   cartItems === undefined ||
                   cartItems.length === 0 ? (
-                  <>
-                    <img src={imageNoOrder} alt="empty cart" />
+                  <div className="noOrdersDiv">
+                    <div>
+                      <img src={imageNoOrder} alt="empty cart" />
+                    </div>
                     <h1>No Order Yet!</h1>
                     <p>Your cart is empty. Add something from the menu.</p>
                     <Link to="/">
@@ -84,7 +86,7 @@ export default class Cart extends Component {
                         Order now
                       </button>
                     </Link>
-                  </>
+                  </div>
                 ) : (
                   <>
                     <div

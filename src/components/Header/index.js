@@ -16,7 +16,8 @@ class Header extends Component {
   }
 
   render() {
-    const {homeOrCart} = this.props
+    const {home, cart, diet} = this.props
+    console.log(home, cart, diet)
     return (
       <>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -41,14 +42,24 @@ class Header extends Component {
           >
             <ul className="navbar-nav">
               <li>
-                <Link className="nav-item nav-link" to="/diet">
+                <Link
+                  to="/diet"
+                  className={
+                    diet
+                      ? 'colorIt nav-item nav-link'
+                      : 'NoColorIt nav-item nav-link'
+                  }
+                >
                   <p>Dietary Restrictions</p>
                 </Link>
               </li>
               <li>
                 <Link
-                  id={homeOrCart ? 'colorIt' : 'NoColorIt'}
-                  className="nav-item nav-link"
+                  className={
+                    home
+                      ? 'colorIt nav-item nav-link'
+                      : 'NoColorIt nav-item nav-link'
+                  }
                   to="/"
                 >
                   <p>Home</p>
@@ -56,8 +67,11 @@ class Header extends Component {
               </li>
               <li>
                 <Link
-                  className="nav-item nav-link"
-                  id={!homeOrCart ? 'colorIt' : 'NoColorIt'}
+                  className={
+                    cart
+                      ? 'colorIt nav-item nav-link'
+                      : 'NoColorIt nav-item nav-link'
+                  }
                   to="/cart"
                 >
                   <p>Cart</p>

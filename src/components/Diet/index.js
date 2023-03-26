@@ -119,7 +119,7 @@ class DietForm extends Component {
 
     return (
       <div className="body">
-        <Header />
+        <Header diet />
         <div>
           <form className="form-container" onSubmit={this.handleSubmit}>
             <label className="form-label">
@@ -167,19 +167,22 @@ class DietForm extends Component {
           {isLoading && <p>Loading recipes...</p>}
           {error && <p>Failed to fetch recipes: {error.message}</p>}
           {recipes.length > 0 && (
-            <ul>
-              {recipes.map(recipe => (
-                <li key={recipe.id}>
-                  <button
-                    className="recipeButton"
-                    type="button"
-                    onClick={() => this.handleRecipeClick(recipe.id)}
-                  >
-                    {recipe.title}
-                  </button>
-                </li>
-              ))}
-            </ul>
+            <div className="recipeDiv">
+              <p>Try these Recipe's ...click to know more</p>
+              <ul className="recipeHolder">
+                {recipes.map(recipe => (
+                  <li key={recipe.id} className="recipeLi">
+                    <button
+                      className="recipeButton"
+                      type="button"
+                      onClick={() => this.handleRecipeClick(recipe.id)}
+                    >
+                      {recipe.title}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
           )}
 
           {selectedRecipe && (
@@ -210,6 +213,9 @@ class DietForm extends Component {
             // </div>
 
             <div>
+              <br />
+              <br />
+              <br />
               {/* {('{console.log(selectedRecipe)}', console.log(selectedRecipe))} */}
               <h2>{recipeDetails.title}</h2>
               <div className="imageDiv">
@@ -219,12 +225,22 @@ class DietForm extends Component {
                   alt={recipeDetails.title}
                 />
               </div>
-
-              <h3>Ingredients to use:</h3>
-              <ol>
-                {selectedRecipe &&
-                  recipeDetails.allIngredients.map(e => <li>{e}</li>)}
-              </ol>
+              <br />
+              <h3 className="ingredients">Ingredients to use:</h3>
+              <div className="ingredientsList">
+                <div
+                  style={{
+                    textAlign: 'center',
+                    marginLeft: '60px',
+                    marginRight: '60px',
+                  }}
+                >
+                  {selectedRecipe &&
+                    recipeDetails.allIngredients.map(e => (
+                      <p className="ingredient">{e}</p>
+                    ))}
+                </div>
+              </div>
               <ul>
                 {/* {recipeDetails.analyzedInstructions.steps.map(ing => (
                 <li key={ing}>{ing.step}</li>
@@ -233,14 +249,18 @@ class DietForm extends Component {
                 'recipeDetails.analyzedInstructions.steps',
                 JSON.stringify(recipeDetails.analyzedInstructions[0].steps),
               )} */}
-                <h4>Procedure</h4>
-                {recipeDetails.analyzedInstructions[0].steps.map(e => (
-                  <>
-                    <p className="recipe-para">
-                      <span>{JSON.stringify(e.number)}</span> .{e.step}
-                    </p>
-                  </>
-                ))}
+                <br />
+
+                <h4 style={{textAlign: 'center'}}>Procedure</h4>
+                <div className="recipe-para-holder">
+                  {recipeDetails.analyzedInstructions[0].steps.map(e => (
+                    <>
+                      <p className="recipe-para">
+                        <span>{JSON.stringify(e.number)}</span> .{e.step}
+                      </p>
+                    </>
+                  ))}
+                </div>
               </ul>
               {/* <h3>Instructions:</h3>
             <p>{recipeDetails.instructions}</p> */}

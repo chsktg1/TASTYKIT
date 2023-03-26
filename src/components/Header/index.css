@@ -12,10 +12,10 @@
   line-height: 32px;
   color: #f7931e;
 }
-#colorIt {
+.colorIt {
   color: #f7931e !important;
   font-weight: 700;
 }
-#NoColorIt {
+.NoColorIt {
   color: gray !important;
 }
